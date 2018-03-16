@@ -4,6 +4,21 @@
 	<meta charset="utf-8">
 	<title>Web APIs test</title>
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+
+	<style type="text/css">
+		#camera-stream {
+			display: block;
+			margin: 1rem auto;
+			width: 640px;
+			height: 480px;
+			border-radius: 4px;
+		}
+
+		.hidden {
+			display: none
+		}
+	</style>
+
 </head>
 <body>
 	<main>
@@ -18,6 +33,14 @@
 					<label>Vibration duration in ms</label>
 					<input type="number" id="custom-vibration-input" name="custom-vibration" placeholder="Default to 100ms">
 					<button class="button" id="custom-vibration-button">Custom Vibration</button>
+				</div>
+			</section>
+
+			<section>
+				<h2>Camera</h2>
+				<p id="camera-status"></p>
+				<div id="camera-area" class="hidden">
+					<video autoplay id="camera-stream"></video>
 				</div>
 			</section>
 		</div>

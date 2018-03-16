@@ -16,4 +16,18 @@ document.addEventListener('DOMContentLoaded', readyEvent => {
 
 		window.navigator.vibrate(document.querySelector('#custom-vibration-input').value || 100)
 	})
+
+
+	const cameraStreamEl = document.querySelector('#camera-stream')
+
+	// Gain access to camera
+	navigator.mediaDevices.getUserMedia({ video: true })
+		.then(cameraStream => {
+			document.querySelector('#camera-area').classList.remove('hidden')
+			cameraStreamEl.srcObject = cameraStream
+		})
+		.catch(error => {
+			document.querySelector('#camera-status').innerText = 'Not allowed 🚫'
+		})
+
 })
